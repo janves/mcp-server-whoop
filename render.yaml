@@ -9,3 +9,13 @@ services:
     envVars:
       - key: ENVIRONMENT
         value: production
+  - type: web
+    name: fastmcp-http-server
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/http-server.py
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: ENVIRONMENT
+        value: production
